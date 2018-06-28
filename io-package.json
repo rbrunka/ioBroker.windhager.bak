@@ -5,17 +5,13 @@
         "news": {
             "0.0.1": {
                 "en": "initial adapter",
-                "de": "Initiale Version",
-                "ru": "Первоначальный адаптер",
-                "pt": "Versão inicial",
-                "fr": "Version initiale",
-                "nl": "Eerste release"
+                "de": "Initiale Version"
             }
         },
 		"title": "Windhager BioWIN2 Touch adapter",
         "titleLang": {
-            "en": "Javascript/Node.js based windhager adapter",
-            "de": "Javascript / Node.js basierte Vorlagenadapter"
+            "en": "Windhager BioWIN2 Touch adapter",
+            "de": "Windhager BioWIN2 Touch adapter"
         },
         "desc": {
             "en": "windhager",
@@ -44,9 +40,9 @@
         "restartAdapters": ["vis"]
     },
     "native": {
-        "test1": true,
-        "test2": 42,
-        "mySelect": "auto"
+        "ip": "192.168.178.33",
+	"login": "Service",
+	"password": "enter your password here"
     },
     "objects": [
 
