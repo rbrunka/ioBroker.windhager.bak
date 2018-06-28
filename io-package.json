@@ -33,7 +33,7 @@
         "extIcon": "https://raw.githubusercontent.com/rbrunka/ioBroker.windhager/master/admin/windhager.png",
         "keywords": ["windhager", "kessel", "heizung", "biowin", "touch"],
         "readme": "https://github.com/rbrunka/ioBroker.windhager/blob/master/README.md",
-        "loglevel": "info",
+        "loglevel": "debug",
         "type": "climate-control",
         "license": "MIT",
         "messagebox": false,
