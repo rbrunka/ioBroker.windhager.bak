@@ -1,26 +1,8 @@
 {
     "common": {
         "name": "windhager",
-        "version": "0.6.0",
+        "version": "0.0.1",
         "news": {
-            "0.6.0": {
-                "en": "Support of admin3",
-                "de": "Unterstützung von admin3",
-                "ru": "Поддержка admin3",
-                "pt": "Suporte de admin3",
-                "nl": "Ondersteuning van admin3",
-                "fr": "Support de admin3",
-                "it": "Supporto di admin3",
-                "es": "Soporte de admin3"
-            },
-            "0.5.0": {
-                "en": "beta version",
-                "de": "Betaversion",
-                "ru": "Бета версия",
-                "pt": "Versão beta",
-                "fr": "Version bêta",
-                "nl": "Beta versie"
-            },
             "0.0.1": {
                 "en": "initial adapter",
                 "de": "Initiale Version",
@@ -30,50 +12,33 @@
                 "nl": "Eerste release"
             }
         },
-		"title": "Javascript/Node.js based windhager adapter",
+		"title": "Windhager BioWIN2 Touch adapter",
         "titleLang": {
             "en": "Javascript/Node.js based windhager adapter",
-            "de": "Javascript / Node.js basierte Vorlagenadapter",
-            "ru": "Адаптер шаблонов на основе Javascript / Node.js",
-            "pt": "Adaptador de modelo baseado em Javascript / Node.js",
-            "nl": "Javascript / Node.js gebaseerde sjabloonadapter",
-            "fr": "Javascript / Node.js basé adaptateur de modèle",
-            "it": "Adattatore modello basato su Javascript / Node.js",
-            "es": "Adaptador de plantilla basado en JavaScript / Node.js"
+            "de": "Javascript / Node.js basierte Vorlagenadapter"
         },
         "desc": {
             "en": "windhager",
-            "de": "ioBroker Windhager Adapter",
-            "ru": "ioBroker Windhager драйвер как образец",
-            "pt": "Modelo de adaptador para o ioBroker",
-            "fr": "ioBroker adaptateur modèle",
-            "nl": "ioBroker Windhager Adapter",
-            "it": "Adattatore modello ioBroker",
-            "es": "Adaptador de plantilla ioBroker"
+            "de": "ioBroker Windhager Adapter"
         },
         "authors": [
             "Roman Brunka <rbrunka@gmail.com>"
         ],
         "docs": {
             "en": "docs/en/admin.md",
-            "ru": "docs/ru/admin.md",
-            "de": "docs/de/admin.md",
-            "es": "docs/es/admin.md",
-            "it": "docs/it/admin.md",
-            "fr": "docs/fr/admin.md",
-            "nl": "docs/nl/admin.md",
-            "pt": "docs/pt/admin.md"
+            "de": "docs/de/admin.md"
         },
         "platform": "Javascript/Node.js",
-        "mode": "daemon",
+        "mode": "schedule",
+	"schedule": "*/5 * * * *",
         "icon": "windhager.png",
         "materialize": true,
         "enabled": true,
         "extIcon": "https://raw.githubusercontent.com/rbrunka/ioBroker.windhager/master/admin/windhager.png",
-        "keywords": ["windhager", "vis", "GUI", "graphical", "scada"],
+        "keywords": ["windhager", "kessel", "heizung", "biowin", "touch"],
         "readme": "https://github.com/rbrunka/ioBroker.windhager/blob/master/README.md",
         "loglevel": "info",
-        "type": "general",
+        "type": "climate-control",
         "license": "MIT",
         "messagebox": false,
         "restartAdapters": ["vis"]
