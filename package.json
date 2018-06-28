@@ -1,7 +1,7 @@
 {
   "name": "iobroker.windhager",
-  "version": "0.6.0",
-  "description": "windhager",
+  "version": "0.0.1",
+  "description": "ioBroker Windhager Kessel Adapter",
   "author": {
     "name": "Roman Brunka",
     "email": "rbrunka@gmail.com"
@@ -12,7 +12,7 @@
       "email": "rbrunka@gmail.com"
     }
   ],
-  "homepage": "https://github.com/ioBroker/ioBroker.windhager",
+  "homepage": "https://github.com/rbrunka/ioBroker.windhager",
   "license": "MIT",
   "keywords": [
     "ioBroker",
@@ -22,9 +22,11 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/ioBroker/ioBroker.windhager"
+    "url": "https://github.com/rbrunka/ioBroker.windhager"
   },
-  "dependencies": {},
+  "dependencies": {
+    "request": "^2.72.0"
+  },
   "devDependencies": {
     "gulp": "^3.9.1",
     "mocha": "^4.1.0",
@@ -35,7 +37,7 @@
     "test": "node node_modules/mocha/bin/mocha --exit"
   },
   "bugs": {
-    "url": "https://github.com/ioBroker/ioBroker.windhager/issues"
+    "url": "https://github.com/rbrunka/ioBroker.windhager/issues"
   },
   "readmeFilename": "README.md"
 }
