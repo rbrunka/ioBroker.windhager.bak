@@ -29,12 +29,12 @@ function main() {
 
     request(connOptions, function(error, response, body) {
         if (!error && response.statusCode == 200) {
-            console.log('Body: ' + body)
+            adapter.log.info('Body: ' + body)
         }
     else {
-        console.debug('Code: ' + response.statusCode);
-        console.debug('Error:' + error);
-        console.debug('Body:' + body)
+        adapter.log.debug('Code: ' + response.statusCode);
+        adapter.log.debug('Error:' + error);
+        adapter.log.debug('Body:' + body)
     }});
 
     setTimeout(function() {
