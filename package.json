@@ -1,6 +1,6 @@
 {
   "name": "iobroker.windhager",
-  "version": "0.0.1",
+  "version": "0.6.1",
   "description": "ioBroker Windhager Kessel Adapter",
   "author": {
     "name": "Roman Brunka",
@@ -16,6 +16,7 @@
   "license": "MIT",
   "keywords": [
     "ioBroker",
+    "schedule",
     "windhager",
     "Smart Home",
     "home automation"

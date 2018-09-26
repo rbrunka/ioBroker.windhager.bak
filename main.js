@@ -13,12 +13,31 @@ adapter.on('ready', function () {
 
 function main() {
 
-    var ip = adapter.config.ip;
-    var login = adapter.config.login;
-    var password = admin.config.password;
+    var connOptions = {
+        uri:'http://' + adapter.config.ip + '/api/1.0/lookup/1/15/0/115/0',
+        auth: {
+            user: adapter.config.login,
+            pass: adapter.config.password,
+            sendImmediately: false
+        },
+        json: true
+    };
 
     adapter.log.info('config IP: '    + adapter.config.ip);
-    adapter.log.info('config login: '    + adapter.config.login);
-    adapter.log.info('config password: ' + adapter.config.password);
+    adapter.log.debug('config login: '    + adapter.config.login);
+    adapter.log.debug('config password: ' + adapter.config.password);
 
+    request(connOptions, function(error, response, body) {
+        if (!error && response.statusCode == 200) {
+            console.log('Body: ' + body)
+        }
+    else {
+        console.debug('Code: ' + response.statusCode);
+        console.debug('Error:' + error);
+        console.debug('Body:' + body)
+    }});
+
+    setTimeout(function() {
+        adapter.stop();
+    }, 10000);
 }

@@ -1,9 +1,9 @@
 {
     "common": {
         "name": "windhager",
-        "version": "0.0.1",
+        "version": "0.0.5",
         "news": {
-            "0.0.1": {
+            "0.0.5": {
                 "en": "initial adapter",
                 "de": "Initiale Version"
             }
@@ -26,7 +26,7 @@
         },
         "platform": "Javascript/Node.js",
         "mode": "schedule",
-	"schedule": "*/5 * * * *",
+        "schedule": "*/5 * * * *",
         "icon": "windhager.png",
         "materialize": true,
         "enabled": true,
@@ -40,7 +40,7 @@
         "restartAdapters": ["vis"]
     },
     "native": {
-        "ip": "192.168.178.33",
+        "ip": "192.168.1.1",
 	"login": "Service",
 	"password": "enter your password here"
     },
