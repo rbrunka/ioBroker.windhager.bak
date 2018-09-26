@@ -32,9 +32,9 @@ function main() {
             adapter.log.info('Body: ' + body)
         }
     else {
-        adapter.log.debug('Code: ' + response.statusCode);
-        adapter.log.debug('Error:' + error);
-        adapter.log.debug('Body:' + body)
+        adapter.log.error('Code: ' + response.statusCode);
+        adapter.log.error('Error:' + error);
+        adapter.log.error('Body:' + body)
     }});
 
     setTimeout(function() {
