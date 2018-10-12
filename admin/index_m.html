@@ -99,18 +99,19 @@
                 </div>
             </div>
             <div id="tab-oids" class="col s12 page">
-                <div class="row">
-                    <div class="input-field col s12 m6 14">
-                        <input class="value" type="text" id="variable1_name" />
-                        <label for "variable1_name" class="translate">Variable name</label>
-                        <span class="translate">Example: Outdoor temperature</span>
-                    </div>
-                    <div class="input-field col s12 m6 14">
-                        <input class="value" type="text" id="variable1_OID" />
-                        <label for "variable1_OID" class="translate">Object ID</label>
-                        <span class="translate">Example: /1/15/0/0/0/0</span>
-                    </div>
-                </div>    
+                <a class="btn-floating waves-effect waves-light blue table-button-add"><i class="material-icons">add</i></a>
+                <div class="table-values-div"
+                    <table class="table-values">
+                        <thead>
+                            <tr>
+                                <th data-name="_index" class="translate"></th>
+                                <th data-name="name" class="translate">Name</th>
+                                <th data-name="oid">OID</th>
+                                <th data-buttons="delete" style="width: 40px"></th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
                 <div class="row">
                     <div class="col s12">
                         <p class="translate">on save adapter restarts with new config immediately</p>
