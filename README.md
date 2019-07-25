@@ -74,7 +74,7 @@ It includes both code running within iobroker and as vis widget. If you only pla
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2018 Roman Brunka <rbrunka@gmail.com>
+Copyright (c) 2019 Roman Brunka <rbrunka@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -1,17 +1,17 @@
 {
     "common": {
         "name": "windhager",
-        "version": "0.0.5",
+        "version": "0.6.5",
         "news": {
-            "0.0.5": {
+            "0.6.5": {
                 "en": "initial adapter",
                 "de": "Initiale Version"
             }
         },
-		"title": "Windhager BioWIN2 Touch adapter",
+		"title": "Windhager BioWIN2 Touch",
         "titleLang": {
-            "en": "Windhager BioWIN2 Touch adapter",
-            "de": "Windhager BioWIN2 Touch adapter"
+            "en": "Windhager BioWIN2 Touch",
+            "de": "Windhager BioWIN2 Touch"
         },
         "desc": {
             "en": "windhager",
