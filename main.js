@@ -11,6 +11,17 @@ adapter.on('ready', function () {
     main();
 });
 
+/*
+Winddhager RestAPI:
+http://%kessel-ip/api-docs - Documentation
+http://%kessel-ip/api/1.0/datapoint/{subnetId}/{nodeId}/{fctId}/{groupId}/{memberId}/{varInst} - single Datapoint object with all its details (read-write)
+http://%kessel-ip/api/1.0/datapoints - retrieve one OID or a list of OID's
+http://%kessel-ip/api/1.0/lookup/{subnetId}/{nodeId}/{fctId}/{levelId}/{position} - single Datapointobject with all its details (read)
+http://%kessel-ip/api/1.0/info/{id} - retrieve id info
+http://%kessel-ip/api/1.0/nodes - list all actual nodes
+http://%kessel-ip/api/1.0/object - retrieve one OID or a list of OID's
+*/
+
 function main() {
 
     var connOptions = {

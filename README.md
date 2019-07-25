@@ -7,8 +7,8 @@ This adapter is a windhager for the creation of an ioBroker adapter. You do not 
 It includes both code running within iobroker and as vis widget. If you only plan to create a vis widget then you should use the [iobroker.vis-windhager](https://github.com/ioBroker/ioBroker.vis-windhager) instead.
 
 ## Steps 
-1. download and unpack this packet from github ```https://github.com/ioBroker/ioBroker.windhager/archive/master.zip```
-  or clone git repository ```git clone --depth=1 https://github.com/ioBroker/ioBroker.windhager.git```
+1. download and unpack this packet from github ```https://github.com/rbrunka/ioBroker.windhager/archive/master.zip```
+  or clone git repository ```git clone --depth=1 https://github.com/rbrunka/ioBroker.windhager.git```
 
 2. download required npm packets. Write in ioBroker.windhager directory:
 
