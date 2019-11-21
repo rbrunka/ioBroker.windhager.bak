@@ -1,9 +1,9 @@
 {
     "common": {
         "name": "template",
-        "version": "0.0.1",
+        "version": "0.7.1",
         "news": {
-            "0.0.1": {
+            "0.7.1": {
                 "en": "initial release",
                 "de": "Erstveröffentlichung",
                 "ru": "Начальная версия",
@@ -42,20 +42,20 @@
             "zh-cn": "适配器开发的模板"
         },
         "authors": [
-            "Author <author@mail.com>"
+            "Roman Brunka <rbrunka@gmail.com>"
         ],
         "keywords": [
             "ioBroker",
-            "template",
             "Smart Home",
-            "home automation"
+            "home automation",
+            "Windhager"
         ],
         "license": "MIT",
         "platform": "Javascript/Node.js",
         "main": "main.js",
-        "icon": "template.png",
+        "icon": "windhager.png",
         "enabled": true,
-        "extIcon": "https://raw.githubusercontent.com/Author/ioBroker.template/master/admin/template.png",
+        "extIcon": "https://raw.githubusercontent.com/Author/ioBroker.template/master/admin/windhager.png",
         "readme": "https://github.com/Author/ioBroker.template/blob/master/README.md",
         "loglevel": "info",
         "mode": "daemon",
