@@ -1,80 +1,92 @@
-![Logo](admin/windhager.png)
-# ioBroker.windhager
-=================
+![Logo](admin/template.png)
+# ioBroker.template
 
-This adapter is a windhager for the creation of an ioBroker adapter. You do not need it at least that you plan developing your own adapter.
+[![NPM version](http://img.shields.io/npm/v/iobroker.template.svg)](https://www.npmjs.com/package/iobroker.template)
+[![Downloads](https://img.shields.io/npm/dm/iobroker.template.svg)](https://www.npmjs.com/package/iobroker.template)
+[![Dependency Status](https://img.shields.io/david/Author/iobroker.template.svg)](https://david-dm.org/Author/iobroker.template)
+[![Known Vulnerabilities](https://snyk.io/test/github/Author/ioBroker.template/badge.svg)](https://snyk.io/test/github/Author/ioBroker.template)
 
-It includes both code running within iobroker and as vis widget. If you only plan to create a vis widget then you should use the [iobroker.vis-windhager](https://github.com/ioBroker/ioBroker.vis-windhager) instead.
+[![NPM](https://nodei.co/npm/iobroker.template.png?downloads=true)](https://nodei.co/npm/iobroker.template/)
 
-## Steps 
-1. download and unpack this packet from github ```https://github.com/rbrunka/ioBroker.windhager/archive/master.zip```
-  or clone git repository ```git clone --depth=1 https://github.com/rbrunka/ioBroker.windhager.git```
+**Tests:**: [![Travis-CI](http://img.shields.io/travis/Author/ioBroker.template/master.svg)](https://travis-ci.org/Author/ioBroker.template)
 
-2. download required npm packets. Write in ioBroker.windhager directory:
+## template adapter for ioBroker
 
-  ```npm install```
-  
-3. set name of this windhager. Call
-  
-  ```gulp rename --name mynewname --email email@mail.com --author "Author Name"```
-  
-  *mynewname* must be **lower** case and with no spaces.
+Template for adapter development
 
-  If gulp is not available, install gulp globally:
-  
-  ```npm install -g gulp-cli```
- 
-4. rename directory from *ioBroker.windhager* (can be *ioBroker.windhager-master*) to *iobroker.mynewname*
+## Developer manual
+This section is intended for the developer. It can be deleted later
 
-5. to use this windhager you should copy it into *.../iobroker/node_modules* directory and then create an instance for it with iobroker.admin
+### Getting started
 
-6. create your adapter:
+You are almost done, only a few steps left:
+1. Create a new repository on GitHub with the name `ioBroker.template`
+1. Initialize the current folder as a new git repository:  
+    ```bash
+    git init
+    git add .
+    git commit -m "Initial commit"
+    ```
+1. Link your local repository with the one on GitHub:  
+    ```bash
+    git remote add origin https://github.com/Author/ioBroker.template
+    ```
 
-  * you might want to start with main.js (code running within iobroker) and admin/index.html (the adapter settings page).
+1. Push all files to the GitHub repo:  
+    ```bash
+    git push origin master
+    ```
+1. Head over to [main.js](main.js) and start programming!
 
-  * [Adapter-Development-Documentation](https://github.com/ioBroker/ioBroker/wiki/Adapter-Development-Documentation),
-  
-  * [Installation, setup and first steps with an ioBroker Development Environment](https://github.com/ioBroker/ioBroker/wiki/Installation,-setup-and-first-steps-with-an-ioBroker-Development-Environment)
-  
-  * [Write and debug vis widgets](https://github.com/ioBroker/ioBroker/wiki/How-to-debug-vis-and-to-write-own-widget-set)
-  
-  * files under the www folders are made available under http://&lt;iobrokerIP&gt;:8082/&lt;adapter-name&gt;/
-    * for this to work the iobroker.vis adapter has to be installed
-    * delete this folder if you do not plan to export any files this way
-    * call ```iobroker upload <adapter-name>``` after you change files in the www folder to get the new files uploaded to vis
-  * the widget folder contains an example of a vis widget
-    * you might want to start with *widget/<adapter-name>.html* and *widget/js/<adapter-name>.js*
-    * call ```iobroker visdebug <adapter-name>``` to enable debugging and upload widget to "vis". (This works only from V0.7.15 of js-controller)
-    * If you do not plan to export any widget then delete the whole widget folder and remove the ```"restartAdapters": ["vis"]``` statement from *io-package.json*
-    * After admin/index.html is changed you must execute ```iobroker upload mynewname``` to see changes in admin console. The same is valid for any files in *admin* and *www* directory  
+### Scripts in `package.json`
+Several npm scripts are predefined for your convenience. You can run them using `npm run <scriptname>`
+| Script name | Description                                              |
+|-------------|----------------------------------------------------------|
+| `test:js`   | Executes the tests you defined in `*.test.js` files.     |
+| `test:package`    | Ensures your `package.json` and `io-package.json` are valid. |
+| `test` | Performs a minimal test run on package files and your tests. |
+| `coverage` | Generates code coverage using your test files. |
 
-7. change version: edit package.json and then call ```grunt p``` in your adapter directory.
-  
-8. share it with the community
+### Writing tests
+When done right, testing code is invaluable, because it gives you the 
+confidence to change your code while knowing exactly if and when 
+something breaks. A good read on the topic of test-driven development 
+is https://hackernoon.com/introduction-to-test-driven-development-tdd-61a13bc92d92. 
+Although writing tests before the code might seem strange at first, but it has very 
+clear upsides.
 
-## Requirements
-* your github repository must have name "ioBroker.<adaptername>". **B** is capital in "ioBroker", but in the package.json the *name* must be low case, because npm does not allow upper case letters.
-* *title* in io-package.json (common) is simple short name of adapter in english. *titleLang* is object that consist short names in many languages. *Lang* ist not german Länge, but english LANGuages.
-* Do not use in the title the words "ioBroker" or "Adapter". It is clear anyway, that it is adapter for ioBroker.   
+The template provides you with basic tests for the adapter startup and package files.
+It is recommended that you add your own tests into the mix.
+
+### Publishing the adapter
+See the documentation of [ioBroker.repositories](https://github.com/ioBroker/ioBroker.repositories#requirements-for-adapter-to-get-added-to-the-latest-repository).
+
+### Test the adapter manually on a local ioBroker installation
+In order to install the adapter locally without publishing, the following steps are recommended:
+1. Create a tarball from your dev directory:  
+    ```bash
+    npm pack
+    ```
+1. Upload the resulting file to your ioBroker host
+1. Install it locally (The paths are different on Windows):
+    ```bash
+    cd /opt/iobroker
+    npm i /path/to/tarball.tgz
+    ```
+
+For later updates, the above procedure is not necessary. Just do the following:
+1. Overwrite the changed files in the adapter directory (`/opt/iobroker/node_modules/iobroker.template`)
+1. Execute `iobroker upload template` on the ioBroker host
 
 ## Changelog
 
-### 0.6.0 (2017.01.02)
-* (bluefox) Support of admin3
-
-### 0.5.0
-* (vegetto) include vis widget
-
-### 0.4.0
-* (bluefox) fix errors with grunt
-
-### 0.2.0
-* (bluefox) initial release
+### 0.0.1
+* (Author) initial release
 
 ## License
-The MIT License (MIT)
+MIT License
 
-Copyright (c) 2019 Roman Brunka <rbrunka@gmail.com>
+Copyright (c) 2019 Author <author@mail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -83,13 +95,13 @@ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 copies of the Software, and to permit persons to whom the Software is
 furnished to do so, subject to the following conditions:
 
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.

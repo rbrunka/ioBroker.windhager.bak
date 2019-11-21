@@ -1,50 +1,96 @@
 {
     "common": {
-        "name": "windhager",
-        "version": "0.6.5",
+        "name": "template",
+        "version": "0.0.1",
         "news": {
-            "0.6.5": {
-                "en": "initial adapter",
-                "de": "Initiale Version"
+            "0.0.1": {
+                "en": "initial release",
+                "de": "Erstveröffentlichung",
+                "ru": "Начальная версия",
+                "pt": "lançamento inicial",
+                "nl": "Eerste uitgave",
+                "fr": "Première version",
+                "it": "Versione iniziale",
+                "es": "Versión inicial",
+                "pl": "Pierwsze wydanie",
+                "zh-cn": "首次出版"
             }
         },
-		"title": "Windhager BioWIN2 Touch",
+        "title": "Template (JavaScript)",
         "titleLang": {
-            "en": "Windhager BioWIN2 Touch",
-            "de": "Windhager BioWIN2 Touch"
+            "en": "Template (JavaScript)",
+            "de": "Vorlage (JavaScript)",
+            "ru": "Шаблон (JavaScript)",
+            "pt": "Modelo (JavaScript)",
+            "nl": "Sjabloon (JavaScript)",
+            "fr": "Modèle (JavaScript)",
+            "it": "Modello (JavaScript)",
+            "es": "Plantilla (JavaScript)",
+            "pl": "Szablon (JavaScript)",
+            "zh-cn": "范本（JavaScript）"
         },
         "desc": {
-            "en": "windhager",
-            "de": "ioBroker Windhager Adapter"
+            "en": "Template for adapter development",
+            "de": "Vorlage für die Adapterentwicklung",
+            "ru": "Шаблон для разработки адаптера",
+            "pt": "Modelo para desenvolvimento de adaptadores",
+            "nl": "Sjabloon voor adapterontwikkeling",
+            "fr": "Modèle pour le développement de l'adaptateur",
+            "it": "Modello per lo sviluppo dell'adattatore",
+            "es": "Plantilla para desarrollo de adaptadores",
+            "pl": "Szablon do opracowania adaptera",
+            "zh-cn": "适配器开发的模板"
         },
         "authors": [
-            "Roman Brunka <rbrunka@gmail.com>"
+            "Author <author@mail.com>"
         ],
-        "docs": {
-            "en": "docs/en/admin.md",
-            "de": "docs/de/admin.md"
-        },
-        "platform": "Javascript/Node.js",
-        "mode": "schedule",
-        "schedule": "*/5 * * * *",
-        "icon": "windhager.png",
-        "materialize": true,
-        "enabled": true,
-        "extIcon": "https://raw.githubusercontent.com/rbrunka/ioBroker.windhager/master/admin/windhager.png",
-        "keywords": ["windhager", "kessel", "heizung", "biowin", "touch"],
-        "readme": "https://github.com/rbrunka/ioBroker.windhager/blob/master/README.md",
-        "loglevel": "debug",
-        "type": "climate-control",
+        "keywords": [
+            "ioBroker",
+            "template",
+            "Smart Home",
+            "home automation"
+        ],
         "license": "MIT",
-        "messagebox": false,
-        "restartAdapters": ["vis"]
+        "platform": "Javascript/Node.js",
+        "main": "main.js",
+        "icon": "template.png",
+        "enabled": true,
+        "extIcon": "https://raw.githubusercontent.com/Author/ioBroker.template/master/admin/template.png",
+        "readme": "https://github.com/Author/ioBroker.template/blob/master/README.md",
+        "loglevel": "info",
+        "mode": "daemon",
+        "type": "general",
+        "compact": true,
+        "materialize": true,
+        "materializeTab": true,
+        "adminTab": {
+            "singleton": true,
+            "name": {
+                "en": "Template (JavaScript)",
+                "de": "Vorlage (JavaScript)",
+                "ru": "Шаблон (JavaScript)",
+                "pt": "Modelo (JavaScript)",
+                "nl": "Sjabloon (JavaScript)",
+                "fr": "Modèle (JavaScript)",
+                "it": "Modello (JavaScript)",
+                "es": "Plantilla (JavaScript)",
+                "pl": "Szablon (JavaScript)",
+                "zh-cn": "范本（JavaScript）"
+            },
+            "link": "",
+            "fa-icon": "info"
+        },
+        "supportCustoms": true,
+        "dependencies": [
+            {
+                "js-controller": ">=1.4.2"
+            }
+        ]
     },
     "native": {
-        "ip": "192.168.1.1",
-	"login": "Service",
-	"password": "enter your password here"
+        "option1": true,
+        "option2": "42"
     },
-    "objects": [
-
-    ]
+    "objects": [],
+    "instanceObjects": []
 }
