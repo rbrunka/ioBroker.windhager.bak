@@ -72,18 +72,36 @@
         </div>
 
         <!-- Put your content here -->
-
-        <!-- For example columns with settings: -->
         <div class="row">
-            <div class="col s6 input-field">
-                <input type="checkbox" class="value" id="option1" />
-                <label for="option1" class="translate">option1</label>
+            <div class="row">
+                <div class="input-field col s12 m6 l4">
+                    <input class="value" id="ip" type="text">
+                    <label for="ip">IP</label>
+                    <span class="translate">IP address of Windhager BioWIN2 Touch</span>
+                </div>
+                <div class="input-field col s12 m6 l4">
+                    <input type="text" class="value" id="login" />
+                    <label for="login" class="translate">Login</label>
+                    <span class="translate">Default login is Service</span>
+                </div>
+                <div class="input-field col s12 m6 l4">
+                    <input id="password" type="text" class="value">
+                    <label for="password" data-error="wrong" data-success="right">Password</label>
+                    <span class="translate">Password</span>
+                </div>
             </div>
-
-            <div class="col s6 input-field">
-                <input type="text" class="value" id="option2" />
-                <label for="option2" class="translate">option2</label>
-            </div>
+        </div>
+        <div class="table-values-div"
+            <table class="table-values">
+                <thead>
+                    <tr>
+                       <th data-name="_index" class="translate"></th>
+                        <th data-name="name" class="translate">Name</th>
+                        <th data-name="oid">OID</th>
+                        <th data-buttons="delete" style="width: 40px"></th>
+                    </tr>
+                </thead>
+            </table>
         </div>
 
     </div>

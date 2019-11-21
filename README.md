@@ -1,14 +1,14 @@
 ![Logo](admin/windhager.png)
-# ioBroker.template
+# ioBroker.windhager
 
-[![NPM version](http://img.shields.io/npm/v/iobroker.template.svg)](https://www.npmjs.com/package/iobroker.template)
-[![Downloads](https://img.shields.io/npm/dm/iobroker.template.svg)](https://www.npmjs.com/package/iobroker.template)
-[![Dependency Status](https://img.shields.io/david/Author/iobroker.template.svg)](https://david-dm.org/Author/iobroker.template)
-[![Known Vulnerabilities](https://snyk.io/test/github/Author/ioBroker.template/badge.svg)](https://snyk.io/test/github/Author/ioBroker.template)
+[![NPM version](http://img.shields.io/npm/v/iobroker.windhager.svg)](https://www.npmjs.com/package/iobroker.windhager)
+[![Downloads](https://img.shields.io/npm/dm/iobroker.windhager.svg)](https://www.npmjs.com/package/iobroker.windhager)
+[![Dependency Status](https://img.shields.io/david/rbrunka/iobroker.windhager.svg)](https://david-dm.org/rbrunka/iobroker.template)
+[![Known Vulnerabilities](https://snyk.io/test/github/rbrunka/ioBroker.windhager/badge.svg)](https://snyk.io/test/github/rbrunka/ioBroker.windhager)
 
-[![NPM](https://nodei.co/npm/iobroker.template.png?downloads=true)](https://nodei.co/npm/iobroker.template/)
+[![NPM](https://nodei.co/npm/iobroker.windhager.png?downloads=true)](https://nodei.co/npm/iobroker.windhager/)
 
-**Tests:**: [![Travis-CI](http://img.shields.io/travis/Author/ioBroker.template/master.svg)](https://travis-ci.org/Author/ioBroker.template)
+**Tests:**: [![Travis-CI](http://img.shields.io/travis/rbrunka/ioBroker.windhager/master.svg)](https://travis-ci.org/rbrunka/ioBroker.windhager)
 
 ## template adapter for ioBroker
 
@@ -80,8 +80,8 @@ For later updates, the above procedure is not necessary. Just do the following:
 
 ## Changelog
 
-### 0.0.1
-* (Author) initial release
+### 0.7.1
+* (rbrunka) new initial release
 
 ## License
 MIT License

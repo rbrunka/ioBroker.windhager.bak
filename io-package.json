@@ -1,6 +1,6 @@
 {
     "common": {
-        "name": "template",
+        "name": "windhager",
         "version": "0.7.1",
         "news": {
             "0.7.1": {
@@ -16,30 +16,30 @@
                 "zh-cn": "首次出版"
             }
         },
-        "title": "Template (JavaScript)",
+        "title": "Windhager API Adapter",
         "titleLang": {
-            "en": "Template (JavaScript)",
-            "de": "Vorlage (JavaScript)",
-            "ru": "Шаблон (JavaScript)",
-            "pt": "Modelo (JavaScript)",
-            "nl": "Sjabloon (JavaScript)",
-            "fr": "Modèle (JavaScript)",
-            "it": "Modello (JavaScript)",
-            "es": "Plantilla (JavaScript)",
-            "pl": "Szablon (JavaScript)",
-            "zh-cn": "范本（JavaScript）"
+            "en": "Windhager API Adapter",
+            "de": "Windhager API Adapter",
+            "ru": "Windhager API Adapter",
+            "pt": "Windhager API Adapter",
+            "nl": "Windhager API Adapter",
+            "fr": "Windhager API Adapter",
+            "it": "Windhager API Adapter",
+            "es": "Windhager API Adapter",
+            "pl": "Windhager API Adapter",
+            "zh-cn": "Windhager API Adapter"
         },
         "desc": {
-            "en": "Template for adapter development",
-            "de": "Vorlage für die Adapterentwicklung",
-            "ru": "Шаблон для разработки адаптера",
-            "pt": "Modelo para desenvolvimento de adaptadores",
-            "nl": "Sjabloon voor adapterontwikkeling",
-            "fr": "Modèle pour le développement de l'adaptateur",
-            "it": "Modello per lo sviluppo dell'adattatore",
-            "es": "Plantilla para desarrollo de adaptadores",
-            "pl": "Szablon do opracowania adaptera",
-            "zh-cn": "适配器开发的模板"
+            "en": "Adapter for Windhager Boiler",
+            "de": "Adapter für Windhager Kessel",
+            "ru": "Адаптер для котла Windhager",
+            "pt": "Adaptador para caldeira Windhager",
+            "nl": "Adapter voor Windhager-ketel",
+            "fr": "Adaptateur pour chaudière Windhager",
+            "it": "Adattatore per caldaia Windhager",
+            "es": "Adaptador para caldera Windhager",
+            "pl": "Adapter do kotła Windhager",
+            "zh-cn": "Windhager锅炉适配器"
         },
         "authors": [
             "Roman Brunka <rbrunka@gmail.com>"
@@ -55,8 +55,8 @@
         "main": "main.js",
         "icon": "windhager.png",
         "enabled": true,
-        "extIcon": "https://raw.githubusercontent.com/Author/ioBroker.template/master/admin/windhager.png",
-        "readme": "https://github.com/Author/ioBroker.template/blob/master/README.md",
+        "extIcon": "https://raw.githubusercontent.com/rbrunka/ioBroker.windhager/master/admin/windhager.png",
+        "readme": "https://github.com/Author/ioBroker.windhager/blob/master/README.md",
         "loglevel": "info",
         "mode": "daemon",
         "type": "general",
@@ -66,16 +66,16 @@
         "adminTab": {
             "singleton": true,
             "name": {
-                "en": "Template (JavaScript)",
-                "de": "Vorlage (JavaScript)",
-                "ru": "Шаблон (JavaScript)",
-                "pt": "Modelo (JavaScript)",
-                "nl": "Sjabloon (JavaScript)",
-                "fr": "Modèle (JavaScript)",
-                "it": "Modello (JavaScript)",
-                "es": "Plantilla (JavaScript)",
-                "pl": "Szablon (JavaScript)",
-                "zh-cn": "范本（JavaScript）"
+                "en": "Windhager API Adapter",
+                "de": "Windhager API Adapter",
+                "ru": "Windhager API Adapter",
+                "pt": "Windhager API Adapter",
+                "nl": "Windhager API Adapter",
+                "fr": "Windhager API Adapter",
+                "it": "Windhager API Adapter",
+                "es": "Windhager API Adapter",
+                "pl": "Windhager API Adapter",
+                "zh-cn": "Windhager API Adapter"
             },
             "link": "",
             "fa-icon": "info"
