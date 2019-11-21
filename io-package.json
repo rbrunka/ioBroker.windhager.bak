@@ -88,8 +88,9 @@
         ]
     },
     "native": {
-        "option1": true,
-        "option2": "42"
+        "ip": "192.168.178.21",
+        "login": "Service",
+        "password": "my-password"
     },
     "objects": [],
     "instanceObjects": []
