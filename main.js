@@ -154,3 +154,34 @@ if (module.parent) {
     // otherwise start the instance directly
     new Template();
 }
+
+function main() {
+    var connOptions = {
+        uri:'http://' + adapter.config.ip + '/api/1.0/' + oid,
+        auth: {
+            user: adapter.config.login,
+            pass: adapter.config.password,
+            sendImmediately: false
+        },
+        json: true
+    };
+
+    adapter.log.info('Configured address: ' + adapter.config.ip);
+    adapter.log.debug('Configured login:' + adapter.config.login );
+    adapter.log.debug('Configured password:' + adapter.config.password);
+
+    request(connOptions, function(error, response, body) {
+        if (!error && response.statusCode == 200) {
+            adapter.log.info('Body:' + body);
+        }
+        else {
+            adapter.log.error('Code: ' + response.statusCode);
+            adapter.log.error('Error: ' + error);
+            adapter.log.error('Body: ' + body);
+        }
+    });
+
+    setTimeout(function() {
+        adapter.stop();
+    }, 10000);
+}
