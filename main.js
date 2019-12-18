@@ -157,7 +157,7 @@ if (module.parent) {
 
 function main() {
     var connOptions = {
-        uri:'http://' + adapter.config.ip + '/api/1.0/' + oid,
+        uri:'http://' + adapter.config.ip + '/api/1.0/datapoints',
         auth: {
             user: adapter.config.login,
             pass: adapter.config.password,
