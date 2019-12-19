@@ -1,24 +1,13 @@
 'use strict';
 
-/*
- * Created with @iobroker/create-adapter v1.17.0
- */
-
-// The adapter-core module gives you access to the core ioBroker functions
-// you need to create an adapter
 const utils = require('@iobroker/adapter-core');
-
-// Load your modules here, e.g.:
-// const fs = require("fs");
 const request = require('request');
 
 class Windhager extends utils.Adapter {
 
-    /**
-     * @param {Partial<ioBroker.AdapterOptions>} [options={}]
-     */
     constructor(options) {
         super({
+            ...options,
             name: 'windhager',
         });
         this.on('ready', this.onReady.bind(this));
@@ -28,23 +17,18 @@ class Windhager extends utils.Adapter {
         this.on('unload', this.onUnload.bind(this));
     }
 
-    /**
-     * Is called when databases are connected and adapter received configuration.
-     */
     async onReady() {
-        // Initialize your adapter here
+        const self = this;
+        const windhagerIp = this.config.ip;
+        const windhagerLogin = this.config.login;
+        const windhagerPasswd = this.config.password;
+        const dataPath = 'datapoints';
+        this.log.info('Configured address: ' + windhagerIp);
+        this.log.debug('Configured login:' + windhagerLogin );
+        this.log.debug('Configured password:' + windhagerPasswd);
 
-        // The adapters config (in the instance object everything under the attribute "native") is accessible via
-        // this.config:
-        this.log.info('Configured address: ' + this.config.ip);
-        this.log.debug('Configured login:' + this.config.login );
-        this.log.debug('Configured password:' + this.config.password);
+        // Setting a test object
 
-        /*
-        For every state in the system there has to be also an object of type state
-        Here a simple template for a boolean variable named "testVariable"
-        Because every adapter instance uses its own unique namespace variable names can't collide with other adapters variables
-        */
         await this.setObjectAsync('windhagerTestVariable', {
             type: 'state',
             common: {
@@ -57,48 +41,25 @@ class Windhager extends utils.Adapter {
             native: {},
         });
 
-        // in this template all states changes inside the adapters namespace are subscribed
-        this.subscribeStates('*');
-
-        /*
-        setState examples
-        you will notice that each setState will cause the stateChange event to fire (because of above subscribeStates cmd)
-        */
-        // the variable testVariable is set to true as command (ack=false)
-        //await this.setStateAsync('windhagerTestVariable', true);
-
-        // same thing, but the value is flagged "ack"
-        // ack should be always set to true if the value is received from or acknowledged from the target system
-        //await this.setStateAsync('windhagerTestVariable', { val: true, ack: true });
-
-        // same thing, but the state is deleted after 30s (getState will return null afterwards)
-        //await this.setStateAsync('windhagerTestVariable', { val: true, ack: true, expire: 30 });
-
-        // examples for the checkPassword/checkGroup functions
-        //let result = await this.checkPasswordAsync('admin', 'iobroker');
-        //this.log.info('check user admin pw ioboker: ' + result);
-
-        //result = await this.checkGroupAsync('admin', 'admin');
-        //this.log.info('check group user admin group admin: ' + result);
-
         const connOptions = {
             auth: {
-                user: this.config.login,
-                pass: this.config.password,
+                user: windhagerLogin,
+                pass: windhagerPasswd,
                 sendImmediately: false
-            }
+            },
+            time: true,
+            timeout: 4500
         };
 
-        function getData(dataPath, callback) {
-            request('http://' + this.config.ip + '/api/1.0/' + dataPath, connOptions, function(error, response, body) {
-                if (error || response.statusCode !== 200) {
-                    return callback(error || {statusCode: response.statusCode});
-                } else {
-                    //console.log(body);
-                    return callback(null, JSON.parse(body));
-                }
-            })
-        };
+        request('http://' + windhagerIp + '/api/1.0/' + dataPath, connOptions, (error, response, body) => {
+            if (error || response.statusCode !== 200) {
+                self.log.error(error || {statusCode: response.statusCode});
+            } else {
+                self.log.info(JSON.parse(body));
+            }
+        });
+
+        setTimeout(this.stop.bind(this), 10000);
         
     }
 
