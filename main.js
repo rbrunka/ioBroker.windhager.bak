@@ -55,7 +55,13 @@ class Windhager extends utils.Adapter {
             if (error || response.statusCode !== 200) {
                 self.log.error(error || {statusCode: response.statusCode});
             } else {
-                self.log.info(JSON.parse(body));
+                self.log.debug('received data')
+                var bodyObj = JSON.parse(body);
+                for (var i = 0; i < bodyObj.length; i++) {
+                    if (typeof bodyObj[i] !== 'undefined') {
+                        self.log.debug(bodyObj[i].OID + ' ' + bodyObj[i].value + ' ' + bodyObj[i].unit);
+                    }
+                }
             }
         });
 
