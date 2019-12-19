@@ -10,16 +10,15 @@ const utils = require('@iobroker/adapter-core');
 
 // Load your modules here, e.g.:
 // const fs = require("fs");
-var request = require("request");
+const request = require('request');
 
-class Template extends utils.Adapter {
+class Windhager extends utils.Adapter {
 
     /**
      * @param {Partial<ioBroker.AdapterOptions>} [options={}]
      */
     constructor(options) {
         super({
-            ...options,
             name: 'windhager',
         });
         this.on('ready', this.onReady.bind(this));
@@ -37,18 +36,19 @@ class Template extends utils.Adapter {
 
         // The adapters config (in the instance object everything under the attribute "native") is accessible via
         // this.config:
-        this.log.info('config option1: ' + this.config.option1);
-        this.log.info('config option2: ' + this.config.option2);
+        this.log.info('Configured address: ' + this.config.ip);
+        this.log.debug('Configured login:' + this.config.login );
+        this.log.debug('Configured password:' + this.config.password);
 
         /*
         For every state in the system there has to be also an object of type state
         Here a simple template for a boolean variable named "testVariable"
         Because every adapter instance uses its own unique namespace variable names can't collide with other adapters variables
         */
-        await this.setObjectAsync('testVariable', {
+        await this.setObjectAsync('windhagerTestVariable', {
             type: 'state',
             common: {
-                name: 'testVariable',
+                name: 'windhagerTestVariable',
                 type: 'boolean',
                 role: 'indicator',
                 read: true,
@@ -65,21 +65,41 @@ class Template extends utils.Adapter {
         you will notice that each setState will cause the stateChange event to fire (because of above subscribeStates cmd)
         */
         // the variable testVariable is set to true as command (ack=false)
-        await this.setStateAsync('testVariable', true);
+        //await this.setStateAsync('windhagerTestVariable', true);
 
         // same thing, but the value is flagged "ack"
         // ack should be always set to true if the value is received from or acknowledged from the target system
-        await this.setStateAsync('testVariable', { val: true, ack: true });
+        //await this.setStateAsync('windhagerTestVariable', { val: true, ack: true });
 
         // same thing, but the state is deleted after 30s (getState will return null afterwards)
-        await this.setStateAsync('testVariable', { val: true, ack: true, expire: 30 });
+        //await this.setStateAsync('windhagerTestVariable', { val: true, ack: true, expire: 30 });
 
         // examples for the checkPassword/checkGroup functions
-        let result = await this.checkPasswordAsync('admin', 'iobroker');
-        this.log.info('check user admin pw ioboker: ' + result);
+        //let result = await this.checkPasswordAsync('admin', 'iobroker');
+        //this.log.info('check user admin pw ioboker: ' + result);
 
-        result = await this.checkGroupAsync('admin', 'admin');
-        this.log.info('check group user admin group admin: ' + result);
+        //result = await this.checkGroupAsync('admin', 'admin');
+        //this.log.info('check group user admin group admin: ' + result);
+
+        const connOptions = {
+            auth: {
+                user: this.config.login,
+                pass: this.config.password,
+                sendImmediately: false
+            }
+        };
+
+        function getData(dataPath, callback) {
+            request('http://' + this.config.ip + '/api/1.0/' + dataPath, connOptions, function(error, response, body) {
+                if (error || response.statusCode !== 200) {
+                    return callback(error || {statusCode: response.statusCode});
+                } else {
+                    //console.log(body);
+                    return callback(null, JSON.parse(body));
+                }
+            })
+        };
+        
     }
 
     /**
@@ -150,39 +170,8 @@ if (module.parent) {
     /**
      * @param {Partial<ioBroker.AdapterOptions>} [options={}]
      */
-    module.exports = (options) => new Template(options);
+    module.exports = (options) => new Windhager(options);
 } else {
     // otherwise start the instance directly
-    new Template();
-}
-
-function main() {
-    var connOptions = {
-        uri:'http://' + adapter.config.ip + '/api/1.0/datapoints',
-        auth: {
-            user: adapter.config.login,
-            pass: adapter.config.password,
-            sendImmediately: false
-        },
-        json: true
-    };
-
-    adapter.log.info('Configured address: ' + adapter.config.ip);
-    adapter.log.debug('Configured login:' + adapter.config.login );
-    adapter.log.debug('Configured password:' + adapter.config.password);
-
-    request(connOptions, function(error, response, body) {
-        if (!error && response.statusCode == 200) {
-            adapter.log.info('Body:' + body);
-        }
-        else {
-            adapter.log.error('Code: ' + response.statusCode);
-            adapter.log.error('Error: ' + error);
-            adapter.log.error('Body: ' + body);
-        }
-    });
-
-    setTimeout(function() {
-        adapter.stop();
-    }, 10000);
+    new Windhager();
 }
