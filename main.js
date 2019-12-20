@@ -74,6 +74,45 @@ class Windhager extends utils.Adapter {
                 for (var i = 0; i < bodyObj.length; i++) {
                     if (typeof bodyObj[i] !== 'undefined') {
                         self.log.debug(bodyObj[i].OID + ' ' + bodyObj[i].value + ' ' + bodyObj[i].unit);
+
+                        self.setObjectNotExists('data' + bodyObj[i].OID.replace(/\//g, '.') + '.OID', {
+                            type: 'state',
+                            common: {
+                                name: 'OID',
+                                type: 'text',
+                                role: 'text',
+                                read: true,
+                                write: false
+                            },
+                            native: {}
+                        });
+                        self.setState('data' + bodyObj[i].OID.replace(/\//g, '.') + '.OID', {val: bodyObj[i].OID, ack: true});
+
+                        self.setObjectNotExists('data' + bodyObj[i].OID.replace(/\//g, '.') + '.value', {
+                            type: 'state',
+                            common: {
+                                name: 'value',
+                                type: 'number',
+                                role: 'value',
+                                read: true,
+                                write: false
+                            },
+                            native: {}
+                        });
+                        self.setState('data' + bodyObj[i].OID.replace(/\//g, '.') + '.value', {val: bodyObj[i].value, ack: true});
+
+                        self.setObjectNotExists('data' + bodyObj[i].OID.replace(/\//g, '.') + '.unit', {
+                            type: 'state',
+                            common: {
+                                name: 'unit',
+                                type: 'text',
+                                role: 'text',
+                                read: true,
+                                write: false
+                            },
+                            native: {}
+                        });
+                        self.setState('data' + bodyObj[i].OID.replace(/\//g, '.') + '.unit', {val: bodyObj[i].unit, ack: true});
                     }
                 }
             }

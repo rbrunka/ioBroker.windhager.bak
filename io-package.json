@@ -1,13 +1,18 @@
 {
     "common": {
         "name": "windhager",
-        "version": "0.9.2",
+        "version": "0.9.3",
         "news": {
+            "0.9.2": {
+                "en": "Data objects storing works",
+                "de": "Datenobjekte werden gespeichert",
+                "pl": "Działa zachowywanie obiektów z danymi"
+            },
             "0.9.1": {
                 "en": "first working version",
                 "de": "Erste funktionierende Ausgabe",
                 "pl": "Pierwsze działające wydanie"
-            }
+            },
             "0.7.1": {
                 "en": "initial release",
                 "de": "Erstveröffentlichung",
@@ -64,7 +69,7 @@
         "readme": "https://github.com/Author/ioBroker.windhager/blob/master/README.md",
         "loglevel": "info",
         "mode": "schedule",
-        "schedule": "*/5 * * * *",
+        "schedule": "* * * * *",
         "type": "climate-control",
         "compact": true,
         "materialize": true,
@@ -72,16 +77,16 @@
         "adminTab": {
             "singleton": true,
             "name": {
-                "en": "Windhager API Adapter",
-                "de": "Windhager API Adapter",
-                "ru": "Windhager API Adapter",
-                "pt": "Windhager API Adapter",
-                "nl": "Windhager API Adapter",
-                "fr": "Windhager API Adapter",
-                "it": "Windhager API Adapter",
-                "es": "Windhager API Adapter",
-                "pl": "Windhager API Adapter",
-                "zh-cn": "Windhager API Adapter"
+                "en": "ioBroker Windhager API Adapter",
+                "de": "ioBroker Windhager API Adapter",
+                "ru": "ioBroker Windhager API Adapter",
+                "pt": "ioBroker Windhager API Adapter",
+                "nl": "ioBroker Windhager API Adapter",
+                "fr": "ioBroker Windhager API Adapter",
+                "it": "ioBroker Windhager API Adapter",
+                "es": "ioBroker Windhager API Adapter",
+                "pl": "ioBroker Windhager API Adapter",
+                "zh-cn": "ioBroker Windhager API Adapter"
             },
             "link": "",
             "fa-icon": "info"
