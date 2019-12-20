@@ -70,8 +70,8 @@ class Windhager extends utils.Adapter {
                 });
                 self.setState('responseTime', {val: parseInt(response.timingPhases.total), ack: true});
 
-                var bodyObj = JSON.parse(body);
-                for (var i = 0; i < bodyObj.length; i++) {
+                const bodyObj = JSON.parse(body);
+                for (let i = 0; i < bodyObj.length; i++) {
                     if (typeof bodyObj[i] !== 'undefined') {
                         self.log.debug(bodyObj[i].OID + ' ' + bodyObj[i].value + ' ' + bodyObj[i].unit);
 
