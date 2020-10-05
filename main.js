@@ -23,7 +23,7 @@ class Windhager extends utils.Adapter {
         const windhagerLogin = this.config.login;
         const windhagerPasswd = this.config.password;
         const dataPath = 'datapoints';
-        
+
         this.log.info('Configured address: ' + windhagerIp);
         this.log.debug('Configured login:' + windhagerLogin );
         this.log.debug('Configured password:' + windhagerPasswd);
@@ -69,6 +69,19 @@ class Windhager extends utils.Adapter {
                     native: {}
                 });
                 self.setState('responseTime', {val: parseInt(response.timingPhases.total), ack: true});
+
+                self.setObjectNotExists('JSON', {
+                    type: state,
+                    common: {
+                        name: 'JSON',
+                        type: 'text',
+                        role: 'text',
+                        read: 'true',
+                        write: 'false'
+                    },
+                    native: {}
+                });
+                self.setState('JSON', {val: body});
 
                 const bodyObj = JSON.parse(body);
                 for (let i = 0; i < bodyObj.length; i++) {
