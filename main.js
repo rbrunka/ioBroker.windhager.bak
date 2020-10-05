@@ -71,7 +71,7 @@ class Windhager extends utils.Adapter {
                 self.setState('responseTime', {val: parseInt(response.timingPhases.total), ack: true});
 
                 self.setObjectNotExists('JSON', {
-                    type: state,
+                    type: 'state',
                     common: {
                         name: 'JSON',
                         type: 'text',
