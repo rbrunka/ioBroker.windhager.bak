@@ -1,7 +1,7 @@
 {
     "common": {
         "name": "windhager",
-        "version": "0.9.3",
+        "version": "0.9.4",
         "news": {
             "0.9.2": {
                 "en": "Data objects storing works",
