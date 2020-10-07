@@ -1,9 +1,9 @@
 {
     "common": {
-        "name": "iobroker windhager adapter",
-        "version": "0.9.5",
+        "name": "iobroker.windhager",
+        "version": "0.9.6",
         "news": {
-            "0.9.5": {
+            "0.9.6": {
                 "en": "simple changes after travis ci"
             },
             "0.9.4": {
@@ -32,18 +32,18 @@
                 "zh-cn": "首次出版"
             }
         },
-        "title": "Windhager API Adapter",
+        "title": "iobroker windhager adapter",
         "titleLang": {
-            "en": "Windhager API Adapter",
-            "de": "Windhager API Adapter",
-            "ru": "Windhager API Adapter",
-            "pt": "Windhager API Adapter",
-            "nl": "Windhager API Adapter",
-            "fr": "Windhager API Adapter",
-            "it": "Windhager API Adapter",
-            "es": "Windhager API Adapter",
-            "pl": "Windhager API Adapter",
-            "zh-cn": "Windhager API Adapter"
+            "en": "iobroker windhager adapter",
+            "de": "iobroker windhager adapter",
+            "ru": "iobroker windhager adapter",
+            "pt": "iobroker windhager adapter",
+            "nl": "iobroker windhager adapter",
+            "fr": "iobroker windhager adapter",
+            "it": "iobroker windhager adapter",
+            "es": "iobroker windhager adapter",
+            "pl": "iobroker windhager adapter",
+            "zh-cn": "iobroker windhager adapter"
         },
         "desc": {
             "en": "Adapter for Windhager Boiler",
