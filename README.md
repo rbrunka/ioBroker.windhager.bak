@@ -20,7 +20,7 @@
 
 ## Changelog
 
-### 0.9.4
+### 0.9.5
 * (rbrunka) added storing all received JSON data as one JSON data point
 
 ### 0.9.3

@@ -1,6 +1,6 @@
 {
   "name": "iobroker.windhager",
-  "version": "0.9.4",
+  "version": "0.9.5",
   "description": "Adapter for Windhager API",
   "author": {
     "name": "Roman Brunka",
