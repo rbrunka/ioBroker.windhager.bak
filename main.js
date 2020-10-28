@@ -109,7 +109,7 @@ class Windhager extends utils.Adapter {
                                         type: 'state',
                                         common: {
                                             name: key,
-                                            type: 'text',
+                                            type: 'string',
                                             role: 'text',
                                             read: true,
                                             write: false
@@ -125,7 +125,7 @@ class Windhager extends utils.Adapter {
             }
         });
 
-        setTimeout(this.stop.bind(this), 10000);
+        setTimeout(this.stop.bind(this), 30000);
     }
 
     onUnload(callback) {
