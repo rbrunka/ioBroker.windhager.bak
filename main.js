@@ -41,14 +41,14 @@ class Windhager extends utils.Adapter {
         });
 
         const connOptions = {
-            method: 'get',
+            method: 'GET',
             digestAuth: windhagerLogin + ':' + windhagerPasswd,
             dataType: 'json'
         };
 
         http.request('http://' + windhagerIp + '/api/1.0/' + dataPath, connOptions, function (error, body, response) {
             if (error || response.statusCode !== 200) {
-                self.log.error(error || {statusCode: response.statusCode});
+                self.log.error('Error' || {statusCode: response.statusCode});
             } else {
                 self.log.debug('received data (' + response.statusCode + '): ' + JSON.stringify(body));
 
@@ -64,7 +64,7 @@ class Windhager extends utils.Adapter {
                     },
                     native: {}
                 });
-                self.setState('responseTime', {val: parseInt(response.timingPhases.total), ack: true});
+                self.setState('responseTime', {val: parseInt(response.rt), ack: true});
 
                 self.setObjectNotExists('JSON', {
                     type: 'state',
