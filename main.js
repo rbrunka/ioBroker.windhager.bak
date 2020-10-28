@@ -65,7 +65,7 @@ class Windhager extends utils.Adapter {
                     },
                     native: {}
                 });
-                self.setState(dataPath + '.JSON', {val: body});
+                self.setState(dataPath + '.JSON', {val: JSON.stringify(body});
 
                 const bodyObj = body;
                 var key, subkey, objectID;
