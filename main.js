@@ -50,7 +50,7 @@ class Windhager extends utils.Adapter {
             if (error || response.statusCode !== 200) {
                 self.log.error('Error' || {statusCode: response.statusCode});
             } else {
-                self.log.debug('received data (' + response.statusCode + '): ' + JSON.stringify(body));
+                self.log.debug('received data (' + response.statusCode + '): ' + body);
 
                 self.setObjectNotExists('responseTime', {
                     type: 'state',
