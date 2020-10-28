@@ -1,7 +1,7 @@
 'use strict';
 
 const utils = require('@iobroker/adapter-core');
-const request = require('request');
+const http = require('urllib');
 
 class Windhager extends utils.Adapter {
 
@@ -41,16 +41,12 @@ class Windhager extends utils.Adapter {
         });
 
         const connOptions = {
-            auth: {
-                user: windhagerLogin,
-                pass: windhagerPasswd,
-                sendImmediately: false
-            },
-            time: true,
-            timeout: 4500
+            method: 'get',
+            digestAuth: windUsername + ':' + windPassword,
+            dataType: 'json'
         };
 
-        request('http://' + windhagerIp + '/api/1.0/' + dataPath, connOptions, (error, response, body) => {
+        http.request('http://' + windhagerIp + '/api/1.0/' + dataPath, connOptions, (error, response, body) => {
             if (error || response.statusCode !== 200) {
                 self.log.error(error || {statusCode: response.statusCode});
             } else {
@@ -88,7 +84,7 @@ class Windhager extends utils.Adapter {
                     if (typeof bodyObj[i] !== 'undefined') {
                         self.log.debug(bodyObj[i].OID + ' ' + bodyObj[i].value + ' ' + bodyObj[i].unit);
 
-                        self.setObjectNotExists('data' + bodyObj[i].OID.replace(/\//g, '.') + '.OID', {
+                        self.setObjectNotExists(dataPath + bodyObj[i].OID.replace(/\//g, '.') + '.OID', {
                             type: 'state',
                             common: {
                                 name: 'OID',
@@ -99,9 +95,9 @@ class Windhager extends utils.Adapter {
                             },
                             native: {}
                         });
-                        self.setState('data' + bodyObj[i].OID.replace(/\//g, '.') + '.OID', {val: bodyObj[i].OID, ack: true});
+                        self.setState(dataPath + bodyObj[i].OID.replace(/\//g, '.') + '.OID', {val: bodyObj[i].OID, ack: true});
 
-                        self.setObjectNotExists('data' + bodyObj[i].OID.replace(/\//g, '.') + '.value', {
+                        self.setObjectNotExists(dataPath + bodyObj[i].OID.replace(/\//g, '.') + '.value', {
                             type: 'state',
                             common: {
                                 name: 'value',
@@ -112,7 +108,7 @@ class Windhager extends utils.Adapter {
                             },
                             native: {}
                         });
-                        self.setState('data' + bodyObj[i].OID.replace(/\//g, '.') + '.value', {val: bodyObj[i].value, ack: true});
+                        self.setState(dataPath + bodyObj[i].OID.replace(/\//g, '.') + '.value', {val: bodyObj[i].value, ack: true});
 
                         self.setObjectNotExists('data' + bodyObj[i].OID.replace(/\//g, '.') + '.unit', {
                             type: 'state',
@@ -125,7 +121,7 @@ class Windhager extends utils.Adapter {
                             },
                             native: {}
                         });
-                        self.setState('data' + bodyObj[i].OID.replace(/\//g, '.') + '.unit', {val: bodyObj[i].unit, ack: true});
+                        self.setState(dataPath + bodyObj[i].OID.replace(/\//g, '.') + '.unit', {val: bodyObj[i].unit, ack: true});
                     }
                 }
             }

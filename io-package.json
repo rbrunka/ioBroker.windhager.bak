@@ -1,8 +1,11 @@
 {
     "common": {
         "name": "iobroker.windhager",
-        "version": "0.9.6",
+        "version": "0.9.9",
         "news": {
+            "0.9.9": {
+                "en": "change: request ==> urllib"
+            },
             "0.9.6": {
                 "en": "simple changes after travis ci"
             },
@@ -19,7 +22,7 @@
                 "de": "Erste funktionierende Ausgabe",
                 "pl": "Pierwsze działające wydanie"
             },
-            "0.7.1": {
+            "0.0.1": {
                 "en": "initial release",
                 "de": "Erstveröffentlichung",
                 "ru": "Начальная версия",
