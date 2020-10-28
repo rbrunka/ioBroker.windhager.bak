@@ -42,7 +42,7 @@ class Windhager extends utils.Adapter {
 
         const connOptions = {
             method: 'get',
-            digestAuth: windUsername + ':' + windPassword,
+            digestAuth: windhagerLogin + ':' + windhagerPasswd,
             dataType: 'json'
         };
 
