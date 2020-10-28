@@ -58,7 +58,7 @@ class Windhager extends utils.Adapter {
                     type: 'state',
                     common: {
                         name: 'JSON',
-                        type: 'json',
+                        type: 'string',
                         role: 'text',
                         read: 'true',
                         write: 'false'
