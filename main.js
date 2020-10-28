@@ -28,18 +28,6 @@ class Windhager extends utils.Adapter {
         this.log.debug('Configured login:' + windhagerLogin );
         this.log.debug('Configured password:' + windhagerPasswd);
 
-        await this.setObjectAsync('windhagerTestVariable', {
-            type: 'state',
-            common: {
-                name: 'windhagerTestVariable',
-                type: 'boolean',
-                role: 'indicator',
-                read: true,
-                write: true,
-            },
-            native: {},
-        });
-
         const connOptions = {
             method: 'GET',
             digestAuth: windhagerLogin + ':' + windhagerPasswd,
@@ -66,7 +54,7 @@ class Windhager extends utils.Adapter {
                 });
                 self.setState(dataPath + '.responseTime', {val: parseInt(response.rt), ack: true});
 
-                self.setObjectNotExistsAsync('JSON', {
+                self.setObjectNotExistsAsync(dataPath + '.JSON', {
                     type: 'state',
                     common: {
                         name: 'JSON',
