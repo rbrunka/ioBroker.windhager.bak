@@ -52,7 +52,7 @@ class Windhager extends utils.Adapter {
             } else {
                 self.log.debug('received data (' + response.statusCode + '): ' + body);
 
-                self.setObjectNotExists('responseTime', {
+                self.setObjectNotExistsAsync(dataPath + '.responseTime', {
                     type: 'state',
                     common: {
                         name: 'responseTime',
@@ -64,9 +64,9 @@ class Windhager extends utils.Adapter {
                     },
                     native: {}
                 });
-                self.setState('responseTime', {val: parseInt(response.rt), ack: true});
+                self.setState(dataPath + '.responseTime', {val: parseInt(response.rt), ack: true});
 
-                self.setObjectNotExists('JSON', {
+                self.setObjectNotExistsAsync('JSON', {
                     type: 'state',
                     common: {
                         name: 'JSON',
@@ -77,51 +77,49 @@ class Windhager extends utils.Adapter {
                     },
                     native: {}
                 });
-                self.setState('JSON', {val: body});
+                self.setState(dataPath + '.JSON', {val: body});
 
                 const bodyObj = body;
+                var key, subkey, objectID;
                 for (let i = 0; i < bodyObj.length; i++) {
                     if (typeof bodyObj[i] !== 'undefined') {
                         self.log.debug(bodyObj[i].OID + ' ' + bodyObj[i].value + ' ' + bodyObj[i].unit);
 
-                        self.setObjectNotExists(dataPath + bodyObj[i].OID.replace(/\//g, '.') + '.OID', {
-                            type: 'state',
-                            common: {
-                                name: 'OID',
-                                type: 'text',
-                                role: 'text',
-                                read: true,
-                                write: false
-                            },
-                            native: {}
-                        });
-                        self.setState(dataPath + bodyObj[i].OID.replace(/\//g, '.') + '.OID', {val: bodyObj[i].OID, ack: true});
-
-                        self.setObjectNotExists(dataPath + bodyObj[i].OID.replace(/\//g, '.') + '.value', {
-                            type: 'state',
-                            common: {
-                                name: 'value',
-                                type: 'number',
-                                role: 'value',
-                                read: true,
-                                write: false
-                            },
-                            native: {}
-                        });
-                        self.setState(dataPath + bodyObj[i].OID.replace(/\//g, '.') + '.value', {val: bodyObj[i].value, ack: true});
-
-                        self.setObjectNotExists('data' + bodyObj[i].OID.replace(/\//g, '.') + '.unit', {
-                            type: 'state',
-                            common: {
-                                name: 'unit',
-                                type: 'text',
-                                role: 'text',
-                                read: true,
-                                write: false
-                            },
-                            native: {}
-                        });
-                        self.setState(dataPath + bodyObj[i].OID.replace(/\//g, '.') + '.unit', {val: bodyObj[i].unit, ack: true});
+                        for (key in bodyObj[i]) {
+                            if (bodyObj[i].hasOwnProperty(key)) {
+                                if (key == 'device') {
+                                    for (subkey in bodyObj[i][key]) {
+                                        if (objectID[i][key].hasOwnProperty(subkey)) {
+                                            self.setObjectNotExistsAsync(dataPath + bodyObj[i].OID.replace(/\//g, '.') + '.' + key + '.' + subkey, {
+                                                type: 'state',
+                                                common: {
+                                                    name: subkey,
+                                                    type: 'text',
+                                                    role: 'text',
+                                                    read: true,
+                                                    write: false
+                                                },
+                                                native: {}
+                                            });
+                                            self.setState(dataPath + bodyObj[i].OID.replace(/\//g, '.') + '.' + key + '.' + subkey, {val: bodyObj[i][key][subkey], ack: true});
+                                        }
+                                    }
+                                } else {
+                                    self.setObjectNotExistsAsync(dataPath + bodyObj[i].OID.replace(/\//g, '.') + '.' + key, {
+                                        type: 'state',
+                                        common: {
+                                            name: key,
+                                            type: 'text',
+                                            role: 'text',
+                                            read: true,
+                                            write: false
+                                        },
+                                        native: {}
+                                    });
+                                    self.setState(dataPath + bodyObj[i].OID.replace(/\//g, '.') + '.' + key, {val: bodyObj[i][key], ack: true}); 
+                                }
+                            }
+                        }
                     }
                 }
             }
