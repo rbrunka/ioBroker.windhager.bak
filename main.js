@@ -79,7 +79,7 @@ class Windhager extends utils.Adapter {
                 });
                 self.setState('JSON', {val: body});
 
-                const bodyObj = JSON.parse(body);
+                const bodyObj = body;
                 for (let i = 0; i < bodyObj.length; i++) {
                     if (typeof bodyObj[i] !== 'undefined') {
                         self.log.debug(bodyObj[i].OID + ' ' + bodyObj[i].value + ' ' + bodyObj[i].unit);
