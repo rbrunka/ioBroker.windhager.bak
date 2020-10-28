@@ -46,7 +46,7 @@ class Windhager extends utils.Adapter {
             dataType: 'json'
         };
 
-        http.request('http://' + windhagerIp + '/api/1.0/' + dataPath, connOptions, function (error, bodyi, response) {
+        http.request('http://' + windhagerIp + '/api/1.0/' + dataPath, connOptions, function (error, body, response) {
             if (error || response.statusCode !== 200) {
                 self.log.error(error || {statusCode: response.statusCode});
             } else {
